@@ -30,10 +30,10 @@ scope = ['https://www.googleapis.com/auth/spreadsheets','https://googleapis.com/
 
 # 認証情報設定
 # ダウンロードしたjsonファイル名をクレデンシャル変数に設定（秘密鍵、Pythonファイルから読み込みしやすい位置に置く）
-credentials = Credentials.from_service_account_file("driven-country-396500-2ff3a622e365.json")
+credentials = Credentials.from_service_account_file("google-driven-country-396500-2ff3a622e365.json", scopes=scope)
 
 # 共有設定したスプレッドシートキーを格納
-SPREADSHEET_KEY = ''
+SPREADSHEET_KEY = '15iOYy3FRdjI2wEWL_oqga7Trf3_NYZ-WaWujNrOzznY'
 
 def main():
     '''
@@ -52,7 +52,6 @@ def main():
     # options.add_argument('--headless')
     # ChromeのWebDriverオブジェクトを作成
     driver = webdriver.Chrome(options=options)
-    print(driver)
     # driver = webdriver.Chrome(options=options, executable_path="chromedriverのpathを書く") -> Windowsの場合
 
     # Googleのトップページを開く
@@ -85,7 +84,7 @@ def search(driver, keyword):
     # 2秒待機
     time.sleep(2)
 
-def get_info(keyword, driver):
+def get_info(driver, keyword):
 
     '''
     タイトル、URL、説明文、H1からH5までの情報を取得
